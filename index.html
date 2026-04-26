@@ -530,7 +530,11 @@
     gap:48px;
     margin-top:48px;
   }
-  @media(max-width:900px){.jd-grid{grid-template-columns:1fr;}}
+  @media(max-width:900px){
+    .jd-grid{grid-template-columns:1fr;}
+    .jd-callout{position:static;top:auto;padding:28px 24px;}
+    .jd-callout-title{font-size:26px;}
+  }
 
   .jd-callout{
     background:var(--ink);

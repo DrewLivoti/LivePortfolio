@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Drew Livoti — Lifecycle, Leadership &amp; the Systems Between Them</title>
+<meta name="description" content="15 years building scaled customer engagement programs across pharma, fintech, digital therapeutics, consumer electronics, and agency — including AI agents, lifecycle systems, and the teams behind them." />
+<meta property="og:title" content="Drew Livoti — Customer Programs at Scale" />
+<meta property="og:description" content="15 years. 5 industries. Programs that compound revenue, retention, and time-to-value." />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="https://drewlivoti.github.io/LivePortfolio/overview/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=DM+Sans:opsz,wght@9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink: #14141C;
+    --ink-soft: #2A2A38;
+    --ink-mute: #5A5A6B;
+    --paper: #F2EBDC;
+    --paper-warm: #EAE0CC;
+    --paper-soft: #F8F3E7;
+    --accent: #E94B2A;       /* coral/orange */
+    --accent-deep: #B8351A;
+    --accent-soft: #F7C8B8;
+    --indigo: #1F2D5C;
+    --sage: #5C7263;
+    --gold: #C5973A;
+    --line: #1A1A22;
+    --grid: rgba(20,20,28,0.08);
+
+    --f-display: "Fraunces", "Times New Roman", serif;
+    --f-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--f-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(233,75,42,0.06) 0%, transparent 35%),
+      radial-gradient(circle at 88% 70%, rgba(31,45,92,0.05) 0%, transparent 40%);
+  }
+
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.4;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 0 0.1 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    mix-blend-mode:multiply;
+  }
+
+  .container{max-width:1280px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+
+  /* ===== NAV ===== */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(242,235,220,0.8);
+    border-bottom:1px solid rgba(20,20,28,0.08);
+    transition:all 0.3s ease;
+  }
+  .nav-inner{
+    max-width:1280px;margin:0 auto;padding:14px 32px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+  }
+  .nav-mark{
+    font-family:var(--f-display);
+    font-weight:600;font-size:18px;
+    font-variation-settings:"opsz" 14, "SOFT" 50;
+    letter-spacing:-0.02em;
+  }
+  .nav-mark span{color:var(--accent);}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{
+    color:var(--ink-soft);text-decoration:none;font-size:13px;
+    font-weight:500;letter-spacing:0.02em;
+    transition:color 0.2s;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;
+    background:var(--accent);transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--ink);color:#FFFFFF;
+    padding:8px 16px;border-radius:100px;font-size:12px;
+    text-decoration:none;font-weight:600;letter-spacing:0.04em;
+    text-transform:uppercase;
+    transition:all 0.2s;
+  }
+  .nav-cta:hover{background:var(--accent);color:var(--ink);transform:translateY(-1px);}
+  .nav-cta::after{display:none;}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none;}}
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:120px 0 80px;
+    position:relative;
+    border-bottom:1px solid rgba(20,20,28,0.12);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 380px;
+    gap:56px;
+    align-items:end;
+  }
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+  }
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--f-mono);
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--accent-deep);
+    margin-bottom:24px;
+    font-weight:600;
+  }
+  .eyebrow::before{
+    content:"";width:96px;height:1.5px;background:var(--accent);
+  }
+  .pulse-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(233,75,42,0.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(233,75,42,0.5);}
+    70%{box-shadow:0 0 0 12px rgba(233,75,42,0);}
+    100%{box-shadow:0 0 0 0 rgba(233,75,42,0);}
+  }
+
+  h1.headline{
+    font-family:var(--f-display);
+    font-weight:400;
+    font-size:clamp(48px, 8vw, 108px);
+    line-height:0.92;
+    letter-spacing:-0.035em;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    color:var(--ink);
+    margin-bottom:32px;
+  }
+  h1.headline em{
+    font-style:italic;font-weight:300;
+    color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  h1.headline .amp{
+    font-style:italic;font-weight:200;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+    color:var(--ink-mute);
+  }
+
+  .lede{
+    font-size:19px;line-height:1.55;
+    color:var(--ink-soft);
+    max-width:580px;
+    margin-bottom:32px;
+  }
+  .lede strong{color:var(--ink);font-weight:600;}
+
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:20px 32px;
+    padding-top:24px;
+    border-top:1px solid rgba(20,20,28,0.15);
+    font-size:13px;
+  }
+  .hero-meta div{display:flex;flex-direction:column;gap:2px;}
+  .hero-meta .label{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.15em;
+    text-transform:uppercase;color:var(--ink-mute);font-weight:500;
+  }
+  .hero-meta .value{color:var(--ink);font-weight:500;}
+  .hero-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);transition:color 0.2s;}
+  .hero-meta a:hover{color:var(--accent);}
+
+  /* Feature Highlight Card */
+  .feature-card{
+    background:var(--ink);
+    color:var(--paper);
+    padding:32px 30px 28px;
+    border-radius:4px;
+    position:relative;
+    overflow:hidden;
+  }
+  .feature-card::before{
+    content:"";position:absolute;top:-30%;right:-25%;width:260px;height:260px;
+    background:radial-gradient(circle, rgba(233,75,42,0.28), transparent 70%);
+    filter:blur(24px);
+    pointer-events:none;
+  }
+  .feature-card::after{
+    content:"";position:absolute;left:-40px;bottom:-40px;width:140px;height:140px;
+    background:radial-gradient(circle, rgba(31,45,92,0.4), transparent 70%);
+    filter:blur(20px);
+    pointer-events:none;
+  }
+
+  .feature-eyebrow{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:18px;
+    font-family:var(--f-mono);
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    position:relative;z-index:2;
+  }
+  .feature-tag{
+    background:var(--accent);
+    color:#FFFFFF;
+    padding:4px 10px;border-radius:3px;
+    font-weight:700;
+  }
+  .feature-where{color:rgba(242,235,220,0.55);font-weight:500;}
+
+  .feature-title{
+    font-family:var(--f-display);
+    font-size:30px;font-weight:400;
+    line-height:1.05;letter-spacing:-0.025em;
+    margin-bottom:24px;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    position:relative;z-index:2;
+  }
+  .feature-title em{
+    color:var(--accent);font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+
+  .feature-stats{
+    display:flex;flex-direction:column;
+    margin-bottom:18px;
+    position:relative;z-index:2;
+  }
+  .fstat{
+    display:grid;
+    grid-template-columns:22px auto 1fr;
+    gap:14px;
+    align-items:center;
+    padding:13px 0;
+    border-bottom:1px solid rgba(242,235,220,0.12);
+  }
+  .fstat:last-child{border-bottom:none;}
+
+  .fstat-arrow{
+    width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent);
+  }
+  .fstat-arrow svg{width:18px;height:18px;}
+
+  .fstat-num{
+    font-family:var(--f-display);
+    font-size:42px;font-weight:300;
+    line-height:1;letter-spacing:-0.04em;
+    color:var(--paper);
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    display:flex;align-items:baseline;
+    min-width:72px;
+  }
+  .fstat-num .x{
+    font-size:22px;color:var(--accent);
+    font-style:italic;font-weight:300;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+    margin-left:1px;
+  }
+
+  .fstat-label{
+    font-size:13px;font-weight:600;
+    color:rgba(242,235,220,0.95);
+    line-height:1.3;
+  }
+  .fstat-label span{
+    display:block;
+    font-weight:400;
+    color:rgba(242,235,220,0.5);
+    font-size:10px;
+    font-family:var(--f-mono);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-top:3px;
+  }
+
+  .feature-note{
+    font-size:13px;
+    color:rgba(242,235,220,0.72);
+    line-height:1.5;
+    font-style:italic;
+    padding-top:14px;
+    border-top:1px dashed rgba(242,235,220,0.15);
+    position:relative;z-index:2;
+    font-family:var(--f-display);
+    font-variation-settings:"opsz" 14, "SOFT" 50;
+    font-size:14px;
+  }
+
+  /* ===== STATS BAND ===== */
+  .stats{
+    padding:80px 0;
+    border-bottom:1px solid rgba(20,20,28,0.12);
+  }
+  .stats-header{
+    display:flex;justify-content:space-between;align-items:end;
+    margin-bottom:48px;flex-wrap:wrap;gap:16px;
+  }
+  .section-label{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:0.18em;
+    color:var(--accent-deep);text-transform:uppercase;font-weight:600;
+    margin-bottom:8px;
+  }
+  .section-title{
+    font-family:var(--f-display);
+    font-weight:400;
+    font-size:clamp(32px, 4vw, 52px);
+    line-height:1;letter-spacing:-0.025em;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+  }
+  .section-title em{font-style:italic;color:var(--accent);font-variation-settings:"opsz" 144, "SOFT" 100;}
+  .section-sub{
+    color:var(--ink-mute);font-size:14px;max-width:420px;
+    margin-top:12px;
+  }
+
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  @media(max-width:760px){.stats-grid{grid-template-columns:1fr;}}
+
+  .stat{
+    padding:32px 24px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--paper-soft);
+    transition:background 0.3s;
+    cursor:default;
+    position:relative;
+    overflow:hidden;
+  }
+  .stat:hover{background:var(--paper-warm);}
+  .stat::after{
+    content:"";position:absolute;left:0;top:0;width:0;height:2px;
+    background:var(--accent);transition:width 0.4s ease;
+  }
+  .stat:hover::after{width:100%;}
+
+  .stat-num{
+    font-family:var(--f-display);
+    font-weight:300;
+    font-size:64px;
+    line-height:1;
+    letter-spacing:-0.04em;
+    color:var(--ink);
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    display:flex;align-items:baseline;gap:4px;
+    margin-bottom:8px;
+  }
+  .stat-num .unit{
+    font-size:32px;color:var(--accent);font-weight:400;
+    font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  .stat-label{
+    font-size:13px;color:var(--ink-soft);font-weight:500;
+    line-height:1.4;
+  }
+  .stat-context{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.1em;
+    color:var(--ink-mute);text-transform:uppercase;margin-top:12px;
+    font-weight:500;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline-section{padding:80px 0;border-bottom:1px solid rgba(20,20,28,0.12);}
+
+  .filter-bar{
+    display:flex;gap:8px;flex-wrap:wrap;
+    margin:32px 0 40px;
+    padding:6px;
+    background:var(--paper-soft);
+    border:1px solid rgba(20,20,28,0.1);
+    border-radius:100px;
+    width:fit-content;
+  }
+  .filter-btn{
+    background:transparent;border:none;
+    padding:8px 18px;border-radius:100px;
+    font-family:var(--f-body);font-size:13px;font-weight:500;
+    color:var(--ink-mute);cursor:pointer;
+    transition:all 0.2s;
+    letter-spacing:0.01em;
+  }
+  .filter-btn:hover{color:var(--ink);}
+  .filter-btn.active{background:var(--ink);color:var(--paper);}
+
+  .timeline{
+    position:relative;
+    padding-left:0;
+  }
+  .timeline-track{
+    position:absolute;
+    left:140px;top:8px;bottom:8px;
+    width:1.5px;
+    background:linear-gradient(to bottom, var(--accent) 0%, var(--ink) 50%, rgba(20,20,28,0.2) 100%);
+  }
+  @media(max-width:760px){.timeline-track{left:24px;}}
+
+  .tl-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:48px;
+    padding:24px 0 32px;
+    transition:opacity 0.4s, transform 0.4s;
+  }
+  @media(max-width:760px){
+    .tl-item{grid-template-columns:1fr;gap:8px;padding-left:56px;}
+  }
+  .tl-item.fade-out{opacity:0.2;transform:translateX(-4px);}
+
+  .tl-date{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:0.05em;
+    color:var(--ink-mute);font-weight:500;
+    padding-top:6px;
+    text-align:right;
+  }
+  @media(max-width:760px){.tl-date{text-align:left;}}
+
+  .tl-dot{
+    position:absolute;
+    left:140px;top:30px;
+    width:14px;height:14px;
+    background:var(--paper);
+    border:2px solid var(--ink);
+    border-radius:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    transition:all 0.3s;
+  }
+  .tl-item.current .tl-dot{
+    background:var(--accent);border-color:var(--accent);
+    box-shadow:0 0 0 6px rgba(233,75,42,0.15);
+  }
+  @media(max-width:760px){.tl-dot{left:24px;}}
+
+  .tl-content{
+    background:var(--paper-soft);
+    border:1px solid rgba(20,20,28,0.1);
+    border-radius:6px;
+    padding:24px 28px;
+    transition:all 0.25s;
+    cursor:pointer;
+  }
+  .tl-content:hover{
+    border-color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:8px 8px 0 -2px rgba(20,20,28,0.06);
+  }
+
+  .tl-company{
+    display:flex;justify-content:space-between;align-items:start;
+    gap:16px;margin-bottom:6px;flex-wrap:wrap;
+  }
+  .tl-company-name{
+    font-family:var(--f-display);font-size:24px;font-weight:500;
+    line-height:1.1;letter-spacing:-0.015em;
+    font-variation-settings:"opsz" 36;
+  }
+  .tl-tag{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.15em;
+    text-transform:uppercase;font-weight:600;
+    padding:4px 10px;border-radius:100px;
+    background:var(--ink);color:var(--paper);
+    white-space:nowrap;
+  }
+  .tl-tag.tag-crm{background:var(--accent);}
+  .tl-tag.tag-leadership{background:var(--indigo);}
+  .tl-tag.tag-agency{background:var(--sage);}
+  .tl-tag.tag-current{background:var(--accent);animation:pulse-tag 2.5s infinite;}
+  @keyframes pulse-tag{50%{opacity:0.7;}}
+
+  .tl-role{
+    font-size:14px;color:var(--ink-soft);font-weight:500;
+    margin-bottom:14px;
+  }
+  .tl-role .industry{
+    font-family:var(--f-mono);font-size:10px;text-transform:uppercase;
+    letter-spacing:0.1em;color:var(--ink-mute);
+    margin-left:8px;padding-left:8px;border-left:1px solid var(--ink-mute);
+  }
+
+  .tl-wins{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .tl-wins li{
+    font-size:14px;color:var(--ink-soft);
+    padding-left:20px;position:relative;line-height:1.5;
+  }
+  .tl-wins li::before{
+    content:"→";
+    position:absolute;left:0;top:0;
+    color:var(--accent);font-weight:600;
+  }
+  .tl-wins li strong{color:var(--ink);font-weight:600;}
+
+  .tl-stack{
+    display:flex;flex-wrap:wrap;gap:6px;
+    margin-top:16px;padding-top:16px;
+    border-top:1px dashed rgba(20,20,28,0.15);
+  }
+  .tl-chip{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.05em;
+    color:var(--ink-mute);
+    padding:3px 8px;border:1px solid rgba(20,20,28,0.15);
+    border-radius:3px;
+    background:var(--paper);
+  }
+
+  /* ===== JD MATCH SECTION ===== */
+  .jd-section{padding:80px 0;border-bottom:1px solid rgba(20,20,28,0.12);}
+  .jd-grid{
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:48px;
+    margin-top:48px;
+  }
+  @media(max-width:900px){
+    .jd-grid{grid-template-columns:1fr;}
+    .jd-callout{position:static;top:auto;padding:28px 24px;}
+    .jd-callout-title{font-size:26px;}
+  }
+
+  .jd-callout{
+    background:var(--ink);
+    color:var(--paper);
+    padding:40px;
+    border-radius:4px;
+    position:sticky;top:100px;
+    align-self:start;
+  }
+  .jd-callout-label{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.18em;
+    text-transform:uppercase;color:rgba(242,235,220,0.55);
+    margin-bottom:14px;font-weight:600;
+  }
+  .jd-callout-title{
+    font-family:var(--f-display);font-size:32px;font-weight:400;
+    line-height:1.1;letter-spacing:-0.02em;
+    margin-bottom:20px;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+  }
+  .jd-callout-title em{
+    color:var(--accent);font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  .jd-callout p{
+    font-size:14px;color:rgba(242,235,220,0.75);
+    line-height:1.6;margin-bottom:24px;
+  }
+  .jd-summary{
+    display:flex;flex-direction:column;gap:12px;
+    padding-top:20px;
+    border-top:1px solid rgba(242,235,220,0.15);
+  }
+  .jd-summary-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:13px;
+  }
+  .jd-summary-row .v{
+    font-family:var(--f-display);font-size:22px;font-weight:400;
+    color:var(--accent);font-variation-settings:"opsz" 36;
+  }
+
+  .req-list{display:flex;flex-direction:column;gap:0;}
+  .req{
+    padding:24px 0;
+    border-bottom:1px solid rgba(20,20,28,0.12);
+    display:grid;
+    grid-template-columns:48px 1fr;
+    gap:20px;align-items:center;
+  }
+  .req:last-child{border-bottom:none;}
+  .req-icon{
+    width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent);
+    color:#FFFFFF;
+    flex-shrink:0;
+  }
+  .req-icon svg{width:18px;height:18px;}
+  .req-content h4{
+    font-family:var(--f-body);font-size:15px;font-weight:600;
+    margin-bottom:4px;color:var(--ink);
+  }
+  .req-content p{font-size:13px;color:var(--ink-mute);line-height:1.5;}
+  .req-content p strong{color:var(--ink-soft);}
+  .req-bar-wrap{
+    display:flex;flex-direction:column;align-items:end;gap:4px;
+  }
+  .req-bar{
+    width:80px;height:4px;background:rgba(20,20,28,0.1);
+    border-radius:2px;overflow:hidden;position:relative;
+  }
+  .req-bar-fill{
+    height:100%;border-radius:2px;
+    transform-origin:left;transform:scaleX(0);
+    transition:transform 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .req-bar-fill.full{background:var(--accent);}
+  .req-bar-fill.match{background:var(--indigo);}
+  .req-bar-fill.partial{background:var(--gold);}
+  .req-pct{
+    font-family:var(--f-mono);font-size:11px;font-weight:600;
+    color:var(--ink-soft);
+  }
+
+  /* ===== CASE STUDIES ===== */
+  .case-section{padding:80px 0;border-bottom:1px solid rgba(20,20,28,0.12);}
+  .case-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+    margin-top:48px;
+  }
+  @media(max-width:900px){.case-grid{grid-template-columns:1fr;}}
+
+  .case-card{
+    background:var(--paper-soft);
+    border:1px solid rgba(20,20,28,0.1);
+    border-radius:6px;
+    padding:32px 30px 28px;
+    display:flex;flex-direction:column;
+    transition:all 0.25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .case-card:hover{
+    border-color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:8px 8px 0 -2px rgba(20,20,28,0.06);
+  }
+  .case-card::before{
+    content:"";position:absolute;left:0;top:0;width:0;height:3px;
+    background:var(--accent);transition:width 0.4s ease;
+  }
+  .case-card:hover::before{width:100%;}
+
+  .case-eyebrow{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:18px;
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.18em;
+    text-transform:uppercase;font-weight:600;
+  }
+  .case-tag{
+    background:var(--ink);color:var(--paper);
+    padding:4px 10px;border-radius:3px;
+  }
+  .case-where{color:var(--ink-mute);}
+
+  .case-title{
+    font-family:var(--f-display);font-weight:400;
+    font-size:28px;line-height:1.1;letter-spacing:-0.025em;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    margin-bottom:18px;
+    color:var(--ink);
+  }
+  .case-title em{
+    color:var(--accent);font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+
+  .case-wins{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+  .case-wins li{
+    font-size:14px;color:var(--ink-soft);
+    padding-left:20px;position:relative;line-height:1.5;
+  }
+  .case-wins li::before{
+    content:"→";
+    position:absolute;left:0;top:0;
+    color:var(--accent);font-weight:600;
+  }
+  .case-wins li strong{color:var(--ink);font-weight:600;}
+
+  .case-move{
+    margin-top:auto;padding-top:18px;
+    border-top:1px dashed rgba(20,20,28,0.18);
+    font-family:var(--f-display);
+    font-variation-settings:"opsz" 14, "SOFT" 50;
+    font-size:14px;line-height:1.5;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .case-move strong{
+    display:block;
+    font-style:normal;font-family:var(--f-mono);font-size:10px;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--accent-deep);font-weight:600;
+    margin-bottom:6px;
+  }
+
+  /* ===== CHARTS ===== */
+  .chart-section{padding:80px 0;border-bottom:1px solid rgba(20,20,28,0.12);}
+  .chart-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-top:48px;
+  }
+  @media(max-width:900px){.chart-grid{grid-template-columns:1fr;}}
+
+  .chart-card{
+    background:var(--paper-soft);
+    border:1px solid rgba(20,20,28,0.1);
+    border-radius:6px;
+    padding:32px;
+    min-width:0;
+    overflow:hidden;
+  }
+  .chart-card h3{
+    font-family:var(--f-display);font-size:24px;font-weight:500;
+    margin-bottom:4px;letter-spacing:-0.015em;
+    font-variation-settings:"opsz" 36;
+  }
+  .chart-card .chart-sub{
+    font-size:13px;color:var(--ink-mute);margin-bottom:24px;
+  }
+  .chart-wrap{
+    position:relative;
+    height:320px;
+    width:100%;
+    min-width:0;
+  }
+  .chart-wrap canvas{
+    max-width:100% !important;
+  }
+
+  /* ===== TECH STACK ===== */
+  .stack-section{padding:80px 0;border-bottom:1px solid rgba(20,20,28,0.12);}
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    margin-top:48px;
+  }
+  @media(max-width:760px){.stack-grid{grid-template-columns:1fr;}}
+
+  .stack-col h4{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:0.15em;
+    text-transform:uppercase;color:var(--accent-deep);font-weight:600;
+    margin-bottom:16px;padding-bottom:12px;
+    border-bottom:1px solid rgba(20,20,28,0.15);
+  }
+  .stack-list{
+    display:flex;flex-wrap:wrap;gap:6px;
+  }
+  .stack-pill{
+    font-size:13px;padding:6px 12px;
+    background:var(--paper-soft);
+    border:1px solid rgba(20,20,28,0.12);
+    border-radius:4px;
+    color:var(--ink-soft);
+    transition:all 0.2s;
+    cursor:default;
+    font-weight:500;
+  }
+  .stack-pill:hover{
+    background:var(--ink);color:var(--paper);border-color:var(--ink);
+    transform:translateY(-1px);
+  }
+  .stack-pill.primary{
+    background:var(--ink);color:var(--paper);border-color:var(--ink);
+    font-weight:600;
+  }
+  .stack-pill.primary:hover{background:var(--accent);border-color:var(--accent);}
+
+  /* ===== FOOTER CTA ===== */
+  footer{
+    background:var(--ink);color:var(--paper);
+    padding:80px 0 40px;
+    position:relative;overflow:hidden;
+  }
+  footer::before{
+    content:"";position:absolute;top:-100px;right:-100px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle, rgba(233,75,42,0.2), transparent 70%);
+    filter:blur(40px);
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:48px;
+    position:relative;z-index:2;
+  }
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;}}
+
+  .foot-headline{
+    font-family:var(--f-display);
+    font-weight:300;
+    font-size:clamp(40px, 6vw, 72px);
+    line-height:0.95;letter-spacing:-0.03em;
+    margin-bottom:24px;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+  }
+  .foot-headline em{
+    font-style:italic;color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  .foot-sub{font-size:16px;color:rgba(242,235,220,0.7);max-width:480px;margin-bottom:32px;line-height:1.5;}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 24px;
+    border-radius:100px;font-size:14px;font-weight:600;
+    text-decoration:none;letter-spacing:0.01em;
+    transition:all 0.2s;
+  }
+  .cta-primary{background:var(--accent);color:var(--paper);}
+  .cta-primary:hover{background:var(--paper);color:var(--ink);transform:translateY(-2px);}
+  .cta-secondary{background:transparent;color:var(--paper);border:1px solid rgba(242,235,220,0.3);}
+  .cta-secondary:hover{border-color:var(--paper);background:rgba(242,235,220,0.06);}
+
+  .foot-info h5{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:0.18em;
+    text-transform:uppercase;color:rgba(242,235,220,0.55);
+    margin-bottom:14px;font-weight:600;
+  }
+  .foot-info ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .foot-info li{font-size:14px;color:rgba(242,235,220,0.85);}
+  .foot-info a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--accent);}
+  .foot-info a:hover{color:var(--accent);}
+
+  .foot-bottom{
+    margin-top:64px;padding-top:24px;
+    border-top:1px solid rgba(242,235,220,0.15);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-family:var(--f-mono);font-size:11px;letter-spacing:0.08em;
+    color:rgba(242,235,220,0.5);text-transform:uppercase;
+    position:relative;z-index:2;
+  }
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s ease, transform 0.8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* selection */
+  ::selection{background:var(--accent);color:var(--paper);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-mark">Drew Livoti<span>.</span></div>
+    <div class="nav-links">
+      <a href="#impact">Impact</a>
+      <a href="#career">Career</a>
+      <a href="#work">Case Studies</a>
+      <a href="#stack">Stack</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="pulse-dot"></span></div>
+        <h1 class="headline">Programs, teams <span class="amp">&amp;</span> the <em>systems</em> between them.</h1>
+        <p class="lede">
+          A <strong>CRM &amp; lifecycle leader</strong> with 15 years building scaled customer engagement programs across <strong>pharma, fintech, digital therapeutics, consumer electronics, and agency</strong> — from hand-coded preference centers and 6M+ contact databases to in-house AI agents that compress process cycles. <strong>8-figures in annualized revenue.</strong> Teams led, platforms migrated, customer journeys turned into measurable retention and expansion.
+        </p>
+        <div class="hero-meta">
+          <div>
+            <span class="label">Based</span>
+            <span class="value">Rockville Centre, NY</span>
+          </div>
+          <div>
+            <span class="label">Email</span>
+            <a href="mailto:AndrewLivoti@gmail.com">AndrewLivoti@gmail.com</a>
+          </div>
+          <div>
+            <span class="label">Phone</span>
+            <span class="value">516.972.0525</span>
+          </div>
+          <div>
+            <span class="label">Currently</span>
+            <span class="value">Sr. Mgr. CRM Strategy · Pfizer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Highlight Card — 15-Year Snapshot -->
+      <div class="feature-card reveal">
+        <div class="feature-eyebrow">
+          <span class="feature-tag">15-Year Snapshot</span>
+          <span class="feature-where">2010 — Present</span>
+        </div>
+        <h3 class="feature-title">5 industries.<br/><em>One</em> operating model.</h3>
+
+        <div class="feature-stats">
+          <div class="fstat">
+            <div class="fstat-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="fstat-num"><span data-target="15" data-prefix="$">0</span><span class="x">M</span></div>
+            <div class="fstat-label">Pfizer abandoned cart<span>annualized · single program</span></div>
+          </div>
+          <div class="fstat">
+            <div class="fstat-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="fstat-num"><span data-target="23">0</span><span class="x"></span></div>
+            <div class="fstat-label">Team scope today<span>3 FTE + 20 contractors</span></div>
+          </div>
+          <div class="fstat">
+            <div class="fstat-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="fstat-num"><span data-target="6">0</span><span class="x">M+</span></div>
+            <div class="fstat-label">Customer base<span>Nikon B2B + B2C database</span></div>
+          </div>
+        </div>
+
+        <p class="feature-note">Senior generalist.<br/>Deep specialist where it matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="impact">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label">/01 — Quantified Impact</div>
+        <h2 class="section-title">Programs that <em>moved</em> the business.</h2>
+      </div>
+      <p class="section-sub">A spread of outcomes across pharma, digital therapeutics, fintech, and consumer — from architecture decisions and AI tooling to engagement programs and self-service systems.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="15" data-prefix="$">0</span><span class="unit">M</span></div>
+        <div class="stat-label">Annualized revenue from Pfizer's first abandoned-cart lifecycle program — architected around SAP-native triggers</div>
+        <div class="stat-context">Pfizer · Pharma · 2024</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="30" data-suffix="%">0</span></div>
+        <div class="stat-label">Customer engagement lift from a Roblox loyalty program I conceived and shipped via a CEO-level partnership</div>
+        <div class="stat-context">Akili · Digital Therapeutics · 2023</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="20">0</span><span class="unit">×</span></div>
+        <div class="stat-label">Unsubscribe-rate reduction (2% → 0.1%) from a hand-built self-service preference center at Yieldstreet</div>
+        <div class="stat-context">Yieldstreet · Fintech · 2021</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="6">0</span><span class="unit">M+</span></div>
+        <div class="stat-label">Customer base segmented across B2B + B2C via reusable SQL framework on SFMC data extensions</div>
+        <div class="stat-context">Nikon · Consumer Electronics · 2017–2020</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="17" data-suffix="%">0</span></div>
+        <div class="stat-label">Cycle-time reduction across a 12-week marketing process via an in-house AI agent built solo on Pfizer's GenAI</div>
+        <div class="stat-context">Pfizer · Pharma · 2024</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-target="1" data-prefix="$">0</span><span class="unit">M</span></div>
+        <div class="stat-label">Annual CRM OpEx reduction by transitioning execution from a commercial agency to a 3-FTE in-house team I built</div>
+        <div class="stat-context">Akili · Digital Therapeutics · 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="career">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label">/02 — Career Trajectory</div>
+        <h2 class="section-title">15 years, <em>one</em> through-line.</h2>
+        <p class="section-sub" style="margin-top:16px;">From hand-coding emails for SMB clients to leading HCP CRM at Pfizer's first Strategic Center of Excellence — every role compounded into the next.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-track"></div>
+
+      <!-- Pfizer -->
+      <div class="tl-item current" data-tags="crm leadership">
+        <div class="tl-date">FEB 2024 —<br/>PRESENT</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Pfizer</div>
+            <span class="tl-tag tag-current">● Current</span>
+          </div>
+          <div class="tl-role">Sr. Manager, Primary Care CRM Strategy<span class="industry">Pharma · Healthcare</span></div>
+          <ul class="tl-wins">
+            <li>Lead a <strong>23-person extended team</strong> (3 FTE + ~20 contractors) across 5 Primary Care brands, partnering with media, data science, analytics, agency, enablement, and brand teams. Reports to Head of Customer Engagement.</li>
+            <li>Architected Pfizer's first <strong>abandoned-cart lifecycle program</strong> — pitched the SAP-native trigger architecture to a VP, bypassing SFMC for 100% reach + every-5-min deployment. <strong>~$15M annualized revenue</strong> against an internal estimate of $10–12M.</li>
+            <li>Built a <strong>CRM process AI agent</strong> solo on Pfizer's GenAI — now used by directors above me across content, journey, and data-structure decisions. <strong>Cut a 12-week cycle to 10.</strong></li>
+            <li>Co-deployed <strong>CDP-driven geo-segmentation</strong> with data science → <strong>~20% conversion lift</strong>. Owned <strong>Marketo → SFMC migration</strong> across 5 brands, ~2M contacts, 3 months.</li>
+            <li>Drove <strong>~10% lift in vaccine orders</strong> via segmented multi-channel lifecycle (email / SMS / direct mail). Earned <strong>8/10 leadership survey score</strong> mentoring marketers, designers, and analysts.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">23-Person Team</span>
+            <span class="tl-chip">SFMC</span>
+            <span class="tl-chip">Marketo</span>
+            <span class="tl-chip">CDP</span>
+            <span class="tl-chip">AI Agent (solo build)</span>
+            <span class="tl-chip">Snowflake</span>
+            <span class="tl-chip">Cross-functional Lead</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Akili -->
+      <div class="tl-item" data-tags="crm leadership">
+        <div class="tl-date">DEC 2021 —<br/>FEB 2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Akili Interactive</div>
+            <span class="tl-tag tag-leadership">Leadership</span>
+          </div>
+          <div class="tl-role">Sr. Manager, Brand Experience &amp; Product Marketing<span class="industry">Digital Therapeutics</span></div>
+          <ul class="tl-wins">
+            <li>Conceived and shipped a <strong>Roblox loyalty program</strong> after observing my CEO's friendship with Roblox's CEO — closed the partnership, designed the in-game hat economy, owned segmentation and SFMC plumbing. <strong>30% engagement lift</strong> vs control.</li>
+            <li>Reduced CRM OpEx <strong>~$1M annually</strong> by transitioning from a commercial agency to a 3-FTE in-house team I hired and ramped (journey/ops + 2 email build/design). Built the political case for the long view.</li>
+            <li>Launched <strong>SMS as a feedback-loop channel</strong> for the CSAT survey — 10× more responses vs email-only. Provisioned short/long codes, built opt-in flow + content strategy from scratch.</li>
+            <li>Owned customer engagement programs across patient + HCP audiences during EndeavorRx's <strong>Rx → OTC pivot</strong> — adapted lifecycle programs to a fundamentally different go-to-market.</li>
+            <li>Reported to VP of Marketing. Partnered with Medical, Legal, Product, and Brand on every program in a regulated digital therapeutics environment.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">Iterable</span>
+            <span class="tl-chip">Partnership-led Programs</span>
+            <span class="tl-chip">In-house Migration</span>
+            <span class="tl-chip">SMS Provisioning</span>
+            <span class="tl-chip">HCP &amp; Patient</span>
+            <span class="tl-chip">Looker</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yieldstreet -->
+      <div class="tl-item" data-tags="crm leadership">
+        <div class="tl-date">JUN 2020 —<br/>DEC 2021</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Yieldstreet → Willow Wealth</div>
+            <span class="tl-tag tag-crm">CRM Ops</span>
+          </div>
+          <div class="tl-role">Email Operations Manager<span class="industry">Fintech · Investments</span></div>
+          <ul class="tl-wins">
+            <li>Hand-built (front-end + mechanics) a <strong>self-service preference center</strong> giving customers control over email categories, channels, and deal types. <strong>20× unsubscribe reduction</strong> (~2% → 0.1%). Partnered with UX, design, and the Regulatory Commission team on phrasing.</li>
+            <li>Led <strong>Marketo → Braze migration</strong> — chose Braze for its incremental-update data architecture (vs. SFMC's full-file overwrites), enabling event-driven segmentation across complex KYC stages</li>
+            <li>Built a <strong>custom engagement-threshold deliverability model</strong> (taught myself the technique) — scoring on soft-bounce + recent engagement to suppress sends that would degrade sender reputation. <strong>10× bounce-rate reduction.</strong></li>
+            <li>Shifted lead capture <strong>upstream of app signup</strong> by partnering with paid search + website teams — embedded forms across blog/content + activated progressive profiling. <strong>3× lead volume in 30 days.</strong></li>
+            <li>Cut campaign build turnaround <strong>~50%</strong> with modular templates and reusable components — operating IC across 300+ campaigns</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">Marketo</span>
+            <span class="tl-chip">Braze</span>
+            <span class="tl-chip">Mandrill</span>
+            <span class="tl-chip">Self-Service / Preference Center</span>
+            <span class="tl-chip">Deliverability Modeling</span>
+            <span class="tl-chip">Hand-coded Front-End</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nikon -->
+      <div class="tl-item" data-tags="crm leadership">
+        <div class="tl-date">APR 2015 —<br/>JUN 2020</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Nikon Inc.</div>
+            <span class="tl-tag tag-crm">B2B + B2C</span>
+          </div>
+          <div class="tl-role">Product Content Manager → Email Marketing Manager<span class="industry">Consumer Electronics · DTC</span></div>
+          <ul class="tl-wins">
+            <li>Scoped my way from web/CMS into email after the prior lead left — saved a program slated for shutdown by repurposing my HTML skills. Then ran the email program for ~3 years.</li>
+            <li>Launched <strong>4 always-on lifecycle automations</strong> (welcome, re-engagement, upgrade, birthday) — registrations +3% YoY, upgrades +2.5% QoQ</li>
+            <li>Built segmentation strategy for a <strong>6M+ B2B + B2C customer database</strong> by hand-writing SQL against the master data extension to architect <strong>reusable child DEs</strong> — a scalable framework, not one-time builds</li>
+            <li>Solved a <strong>GDPR/CCPA compliance crisis</strong> by encoding customer IDs in URL tags (reversible post-click) — preserved attribution for original purchase + downstream upsells without violating new privacy law</li>
+            <li>Engineered a <strong>midnight B2B simultaneous-launch system</strong> — built assets in proofing folders with production references, "moved" them at midnight to consolidate <strong>12 vendor-specific emails into 1</strong> dynamic-content email. Eliminated a 2-person 12am–2am shift and closed a leak vector.</li>
+            <li>Increased click-through rates <strong>~50%</strong> via formal template-UX audit on 2 anchor journeys, then scaled the new design system across the lifecycle book</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">SFMC</span>
+            <span class="tl-chip">AMPscript</span>
+            <span class="tl-chip">SQL (master DE arch)</span>
+            <span class="tl-chip">B2B + B2C</span>
+            <span class="tl-chip">GDPR / WCAG</span>
+            <span class="tl-chip">5-yr tenure</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fishbat -->
+      <div class="tl-item" data-tags="agency">
+        <div class="tl-date">JUN 2014 —<br/>FEB 2015</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Fishbat Media</div>
+            <span class="tl-tag tag-agency">Agency</span>
+          </div>
+          <div class="tl-role">Account Executive · Pod Lead<span class="industry">Digital Agency · Multi-Client</span></div>
+          <ul class="tl-wins">
+            <li>Led an agency pod delivering cross-channel digital programs end-to-end (briefing → execution → reporting)</li>
+            <li>Reallocated paid budgets across Google &amp; social, lifting client lead volume substantially</li>
+            <li>Presented <strong>weekly KPI dashboards</strong> to client stakeholders, each tailored to long/short-term goals</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">Paid Search</span>
+            <span class="tl-chip">Display Ads</span>
+            <span class="tl-chip">Account Strategy</span>
+            <span class="tl-chip">Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brainstorm -->
+      <div class="tl-item" data-tags="agency">
+        <div class="tl-date">DEC 2010 —<br/>JUN 2014</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-company">
+            <div class="tl-company-name">Brainstorm Studio</div>
+            <span class="tl-tag tag-agency">Foundations</span>
+          </div>
+          <div class="tl-role">Digital Strategist (CRM)<span class="industry">Agency · SMB Clients</span></div>
+          <ul class="tl-wins">
+            <li>Built CRM and customer-journey strategies translating business goals into <strong>segmented lifecycle programs</strong></li>
+            <li>Lifted top client's open rate from <strong>18% → 40%</strong> via list segmentation in MS Excel + Constant Contact</li>
+            <li>Brought CPC from <strong>$1.00 → $0.25</strong> with persona-based targeting using SurveyMonkey + Facebook</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-chip">MailChimp</span>
+            <span class="tl-chip">Constant Contact</span>
+            <span class="tl-chip">Lyris</span>
+            <span class="tl-chip">WordPress</span>
+            <span class="tl-chip">Magento</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED CASE STUDIES -->
+<section class="case-section" id="work">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label">/03 — Selected Case Studies</div>
+        <h2 class="section-title">Four moves, <em>across</em> four contexts.</h2>
+        <p class="section-sub" style="margin-top:16px;">Programs where the differentiating decision was architecture, not execution. Each represents a category — AI tooling, lifecycle revenue, partnerships, B2B engineering — and a different industry.</p>
+      </div>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- Case 1: AI Agent -->
+      <div class="case-card reveal">
+        <div class="case-eyebrow">
+          <span class="case-tag">01 / AI &amp; Internal Tooling</span>
+          <span class="case-where">Pfizer · 2024</span>
+        </div>
+        <h3 class="case-title">Built solo. Used by <em>Directors</em>.</h3>
+        <ul class="case-wins">
+          <li>Built a <strong>CRM process AI agent</strong> solo on Pfizer's GenAI platform (Claude + GPT engines) — no engineering team, no vendor</li>
+          <li>Used today across <strong>3 workstream handoffs</strong>: production, ops, data science. Adopted by Directors above me.</li>
+          <li><strong>12-week process compressed to 10 weeks</strong> when the agent is used effectively across those handoffs</li>
+        </ul>
+        <p class="case-move"><strong>The move</strong>Saw the 12-team handoff process as the bottleneck and embedded the institutional knowledge into an agent — instead of writing more documentation.</p>
+      </div>
+
+      <!-- Case 2: Abandoned Cart -->
+      <div class="case-card reveal">
+        <div class="case-eyebrow">
+          <span class="case-tag">02 / Lifecycle Revenue</span>
+          <span class="case-where">Pfizer · 2024</span>
+        </div>
+        <h3 class="case-title">$15M from <em>not</em> using SFMC.</h3>
+        <ul class="case-wins">
+          <li>Architected the <strong>abandoned-cart program to trigger from SAP natively</strong>, not from the marketing automation stack</li>
+          <li>Unlocked promotional classification + 100% reach (bypassed marketing opt-outs) + every-5-min deployment vs. SFMC's 1-per-day cap</li>
+          <li>Internal pre-launch estimate: $10–12M annualized. <strong>Actual: ~$15M.</strong></li>
+        </ul>
+        <p class="case-move"><strong>The move</strong>Routed around the obvious tool. The marketing automation queue would have capped us; SAP-native triggers gave us 5-minute latency and full deliverability.</p>
+      </div>
+
+      <!-- Case 3: Roblox -->
+      <div class="case-card reveal">
+        <div class="case-eyebrow">
+          <span class="case-tag">03 / Partnerships &amp; Engagement</span>
+          <span class="case-where">Akili · 2023</span>
+        </div>
+        <h3 class="case-title">30% engagement from a <em>CEO friendship</em>.</h3>
+        <ul class="case-wins">
+          <li>Noticed Akili's CEO had a personal friendship with Roblox's CEO — pitched and closed the partnership myself</li>
+          <li>Designed an in-game hat economy unlocked by EndeavorRx app progression. Owned segmentation + SFMC plumbing + brand brief</li>
+          <li><strong>30% engagement lift</strong> measured against control by data science, tracked daily in Looker</li>
+        </ul>
+        <p class="case-move"><strong>The move</strong>Saw a relationship the org wasn't using and converted it into a discovery channel — bringing new audiences while lifting retention for existing kids playing the app.</p>
+      </div>
+
+      <!-- Case 4: Midnight B2B -->
+      <div class="case-card reveal">
+        <div class="case-eyebrow">
+          <span class="case-tag">04 / Engineering &amp; B2B Ops</span>
+          <span class="case-where">Nikon · 2018</span>
+        </div>
+        <h3 class="case-title">12 emails into <em>one</em>, at midnight.</h3>
+        <ul class="case-wins">
+          <li>New-product launch emails to vendor lists (Walmart, Target, Best Buy, etc.) had to ship at midnight to prevent leaks — hackers actively monitored production folders</li>
+          <li>Built assets in <strong>proofing folders with production references</strong>, "moved" them at midnight so files instantly resolved with full personalization + dynamic content</li>
+          <li>Consolidated <strong>12 vendor-specific emails into 1 dynamic-content send</strong>. Eliminated a 2-person 12am–2am shift and closed the leak vector.</li>
+        </ul>
+        <p class="case-move"><strong>The move</strong>Solved a security problem and an ops problem at once — by changing the build pipeline, not the launch process.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<section class="chart-section">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label">/04 — Visual Storyline</div>
+        <h2 class="section-title">A career, <em>charted</em>.</h2>
+      </div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Scope &amp; team growth</h3>
+        <p class="chart-sub">Customer database scale and direct + extended team size by role — the inflection at Pfizer is the 23-person extended team.</p>
+        <div class="chart-wrap"><canvas id="scopeChart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Channel orchestration mix</h3>
+        <p class="chart-sub">Coverage across email, SMS, push, direct mail, in-app, and WhatsApp at the three most recent roles. Multi-channel is the norm.</p>
+        <div class="chart-wrap"><canvas id="channelChart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Industries spanned</h3>
+        <p class="chart-sub">Years per vertical across 15 years — pharma, digital therapeutics, fintech, consumer electronics, and agency multi-client.</p>
+        <div class="chart-wrap"><canvas id="industryChart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Capability depth</h3>
+        <p class="chart-sub">Self-rated depth across the eight capabilities I've shipped repeatedly — calibrated against years of hands-on use, not job titles.</p>
+        <div class="chart-wrap"><canvas id="capabilityChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="stack-section" id="stack">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label">/05 — The Tech Stack</div>
+        <h2 class="section-title">Tools I've shipped with.</h2>
+        <p class="section-sub" style="margin-top:16px;">All listed have 2+ years of active, hands-on experience. Highlighted ones are core daily tools.</p>
+      </div>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-col">
+        <h4>Lifecycle &amp; Engagement Platforms</h4>
+        <div class="stack-list">
+          <span class="stack-pill primary">SFMC</span>
+          <span class="stack-pill primary">Braze</span>
+          <span class="stack-pill primary">Marketo</span>
+          <span class="stack-pill">Iterable</span>
+          <span class="stack-pill">Mandrill</span>
+          <span class="stack-pill">Lyris</span>
+          <span class="stack-pill">Mailchimp</span>
+          <span class="stack-pill">Constant Contact</span>
+          <span class="stack-pill">iContact</span>
+        </div>
+      </div>
+
+      <div class="stack-col">
+        <h4>Data &amp; Analytics</h4>
+        <div class="stack-list">
+          <span class="stack-pill primary">Looker</span>
+          <span class="stack-pill primary">Snowflake</span>
+          <span class="stack-pill">Quicksight</span>
+          <span class="stack-pill">Tableau</span>
+          <span class="stack-pill">G Data Studio</span>
+          <span class="stack-pill">G Analytics</span>
+          <span class="stack-pill primary">SQL</span>
+          <span class="stack-pill">CDP (Pfizer)</span>
+        </div>
+      </div>
+
+      <div class="stack-col">
+        <h4>Languages &amp; AI Tooling</h4>
+        <div class="stack-list">
+          <span class="stack-pill primary">Claude / Cowork</span>
+          <span class="stack-pill primary">Custom GPT Agents</span>
+          <span class="stack-pill primary">HTML</span>
+          <span class="stack-pill primary">CSS</span>
+          <span class="stack-pill primary">AMPscript</span>
+          <span class="stack-pill">JavaScript</span>
+          <span class="stack-pill">Java</span>
+          <span class="stack-pill">PHP</span>
+          <span class="stack-pill">Python (light)</span>
+        </div>
+      </div>
+
+      <div class="stack-col">
+        <h4>Certifications</h4>
+        <div class="stack-list">
+          <span class="stack-pill">SFMC Specialist</span>
+          <span class="stack-pill">Google Ads</span>
+          <span class="stack-pill">Google Analytics</span>
+          <span class="stack-pill">Duke · Java</span>
+          <span class="stack-pill">Duke · Front-End Dev</span>
+        </div>
+      </div>
+
+      <div class="stack-col">
+        <h4>Core Skills</h4>
+        <div class="stack-list">
+          <span class="stack-pill">Journey Orchestration</span>
+          <span class="stack-pill">Cohort Segmentation</span>
+          <span class="stack-pill">AI Agent Build</span>
+          <span class="stack-pill">Self-Service Design</span>
+          <span class="stack-pill">Platform Migrations</span>
+          <span class="stack-pill">Vendor Negotiation</span>
+          <span class="stack-pill">Team Coaching</span>
+          <span class="stack-pill">Cross-Functional Lead</span>
+          <span class="stack-pill">Experimentation</span>
+        </div>
+      </div>
+
+      <div class="stack-col">
+        <h4>Education</h4>
+        <div class="stack-list">
+          <span class="stack-pill primary">Hofstra · BBA, IT (2010)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="eyebrow" style="color:var(--accent-soft);">Open to Conversations</div>
+        <h2 class="foot-headline">Programs that <em>compound</em>. Teams that learn.</h2>
+        <p class="foot-sub">Senior CRM &amp; lifecycle leadership across pharma, fintech, digital therapeutics, consumer, and agency. If your team is scaling lifecycle programs, building AI-powered customer journeys, or migrating platforms — I'd love to compare notes.</p>
+        <div class="cta-row">
+          <a href="mailto:AndrewLivoti@gmail.com?subject=Hello%20from%20your%20portfolio" class="cta cta-primary">→ AndrewLivoti@gmail.com</a>
+          <a href="https://www.linkedin.com/in/andrewlivoti/" target="_blank" rel="noopener" class="cta cta-secondary">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="foot-info">
+        <h5>The Quick Facts</h5>
+        <ul>
+          <li><strong>Based:</strong> Rockville Centre, NY</li>
+          <li><strong>Open to:</strong> Hybrid (NYC) or Remote</li>
+          <li><strong>Currently:</strong> Sr. Mgr. CRM Strategy at Pfizer</li>
+          <li><strong>Education:</strong> Hofstra University, BBA Information Technology</li>
+          <li><strong>References:</strong> Available on request</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>© 2026 Drew Livoti</div>
+      <div>Living portfolio · Last updated April 2026</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ----- INTERSECTION REVEAL -----
+  const reveals = document.querySelectorAll('.reveal, .stat, .req');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        // count up any numbers inside
+        e.target.querySelectorAll('[data-target]').forEach(num=>{
+          if(!num.dataset.done){
+            animateNumber(num);
+            num.dataset.done = '1';
+          }
+        });
+        // bar fills
+        e.target.querySelectorAll('.req-bar-fill').forEach(b=>{
+          const fill = b.dataset.fill || 100;
+          requestAnimationFrame(()=>{ b.style.transform = `scaleX(${fill/100})`; });
+        });
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.15});
+  reveals.forEach(r=>io.observe(r));
+
+  function animateNumber(el){
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min((now-start)/dur, 1);
+      const eased = 1 - Math.pow(1-t, 3);
+      const v = Math.round(target * eased);
+      el.textContent = prefix + v + suffix;
+      if(t<1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ----- CHARTS -----
+  // Scope chart
+  const ctx1 = document.getElementById('scopeChart');
+  if(ctx1){
+    new Chart(ctx1, {
+      type:'line',
+      data:{
+        labels:[
+          ['Brainstorm','2010 — 2014'],
+          ['Fishbat','2014 — 2015'],
+          ['Nikon','2015 — 2020'],
+          ['Yieldstreet','2020 — 2021'],
+          ['Akili','2021 — 2024'],
+          ['Pfizer','2024 — Present']
+        ],
+        datasets:[
+          {
+            label:'Database scale (M users)',
+            data:[0.5, 0.5, 6, 0.8, 3, 3],
+            borderColor:'#E94B2A',
+            backgroundColor:'rgba(233,75,42,0.08)',
+            tension:0.4,
+            fill:true,
+            pointRadius:5,
+            pointBackgroundColor:'#E94B2A',
+            pointBorderColor:'#F2EBDC',
+            pointBorderWidth:2,
+            borderWidth:2.5
+          },
+          {
+            label:'Direct reports + contractors',
+            data:[0, 2, 3, 4, 6, 14],
+            borderColor:'#1F2D5C',
+            backgroundColor:'rgba(31,45,92,0.05)',
+            tension:0.4,
+            fill:true,
+            pointRadius:4,
+            pointBackgroundColor:'#1F2D5C',
+            pointBorderColor:'#F2EBDC',
+            pointBorderWidth:2,
+            borderWidth:2,
+            yAxisID:'y1'
+          }
+        ]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        interaction:{mode:'index', intersect:false},
+        plugins:{
+          legend:{
+            position:'top',
+            align:'end',
+            labels:{
+              font:{family:'DM Sans', size:11, weight:'500'},
+              color:'#2A2A38',
+              boxWidth:8,
+              boxHeight:8,
+              usePointStyle:true,
+              pointStyle:'circle',
+              filter: function(item){ return item.text !== 'Database scale (M users)'; }
+            }
+          },
+          tooltip:{
+            backgroundColor:'#14141C',
+            titleFont:{family:'DM Sans', size:12, weight:'600'},
+            bodyFont:{family:'DM Sans', size:12},
+            padding:12,
+            cornerRadius:4,
+            displayColors:true
+          }
+        },
+        scales:{
+          x:{
+            grid:{color:'rgba(20,20,28,0.06)'},
+            ticks:{
+              font:{family:'DM Sans', size:11, weight:'600'},
+              color:'#2A2A38',
+              padding:6
+            }
+          },
+          y:{
+            position:'left',
+            grid:{color:'rgba(20,20,28,0.06)'},
+            ticks:{font:{family:'JetBrains Mono', size:10}, color:'#5A5A6B'},
+            title:{display:true, text:'Database (M)', font:{family:'DM Sans', size:11, weight:'600'}, color:'#E94B2A'}
+          },
+          y1:{
+            position:'right',
+            grid:{display:false},
+            ticks:{font:{family:'JetBrains Mono', size:10}, color:'#5A5A6B'},
+            title:{display:true, text:'Team Size', font:{family:'DM Sans', size:11, weight:'600'}, color:'#1F2D5C'}
+          }
+        }
+      }
+    });
+  }
+
+  // Channel chart
+  const ctx2 = document.getElementById('channelChart');
+  if(ctx2){
+    new Chart(ctx2, {
+      type:'radar',
+      data:{
+        labels:['Email', 'SMS', 'Push', 'Direct Mail', 'In-App', 'WhatsApp'],
+        datasets:[
+          {
+            label:'Pfizer',
+            data:[10, 9, 6, 9, 5, 8],
+            borderColor:'#E94B2A',
+            backgroundColor:'rgba(233,75,42,0.18)',
+            borderWidth:2,
+            pointRadius:3,
+            pointBackgroundColor:'#E94B2A'
+          },
+          {
+            label:'Akili',
+            data:[8, 8, 9, 6, 9, 0],
+            borderColor:'#1F2D5C',
+            backgroundColor:'rgba(31,45,92,0.12)',
+            borderWidth:2,
+            pointRadius:3,
+            pointBackgroundColor:'#1F2D5C'
+          },
+          {
+            label:'Yieldstreet',
+            data:[10, 8, 9, 0, 8, 0],
+            borderColor:'#D4A017',
+            backgroundColor:'rgba(212,160,23,0.15)',
+            borderWidth:2,
+            pointRadius:3,
+            pointBackgroundColor:'#D4A017'
+          }
+        ]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              font:{family:'DM Sans', size:11, weight:'500'},
+              color:'#2A2A38',
+              boxWidth:8,
+              boxHeight:8,
+              usePointStyle:true,
+              padding:14
+            }
+          },
+          tooltip:{
+            backgroundColor:'#14141C',
+            titleFont:{family:'DM Sans', size:12, weight:'600'},
+            bodyFont:{family:'DM Sans', size:12},
+            padding:12,
+            cornerRadius:4
+          }
+        },
+        scales:{
+          r:{
+            min:0,
+            max:10,
+            grid:{color:'rgba(20,20,28,0.1)'},
+            angleLines:{color:'rgba(20,20,28,0.1)'},
+            pointLabels:{
+              font:{family:'DM Sans', size:12, weight:'600'},
+              color:'#14141C'
+            },
+            ticks:{display:false, stepSize:2}
+          }
+        }
+      }
+    });
+  }
+
+  // Industry chart — horizontal bar, years per industry
+  const ctx3 = document.getElementById('industryChart');
+  if(ctx3){
+    new Chart(ctx3, {
+      type:'bar',
+      data:{
+        labels:[
+          'Consumer Electronics',
+          'Agency / Multi-client',
+          'Digital Therapeutics',
+          'Pharma',
+          'Fintech / Investments'
+        ],
+        datasets:[{
+          label:'Years',
+          data:[5.2, 4.5, 2.2, 2.2, 1.5],
+          backgroundColor:[
+            'rgba(233,75,42,0.85)',
+            'rgba(92,114,99,0.85)',
+            'rgba(31,45,92,0.85)',
+            'rgba(184,53,26,0.85)',
+            'rgba(197,151,58,0.85)'
+          ],
+          borderColor:[
+            '#E94B2A',
+            '#5C7263',
+            '#1F2D5C',
+            '#B8351A',
+            '#C5973A'
+          ],
+          borderWidth:1.5,
+          borderRadius:3
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        indexAxis:'y',
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'#14141C',
+            titleFont:{family:'DM Sans', size:12, weight:'600'},
+            bodyFont:{family:'DM Sans', size:12},
+            padding:12,
+            cornerRadius:4,
+            callbacks:{
+              label: function(ctx){ return ctx.parsed.x + ' years'; }
+            }
+          }
+        },
+        scales:{
+          x:{
+            beginAtZero:true,
+            max:6,
+            grid:{color:'rgba(20,20,28,0.06)'},
+            ticks:{
+              font:{family:'JetBrains Mono', size:10},
+              color:'#5A5A6B',
+              callback: function(v){ return v + ' yr'; }
+            }
+          },
+          y:{
+            grid:{display:false},
+            ticks:{
+              font:{family:'DM Sans', size:12, weight:'600'},
+              color:'#14141C'
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Capability chart — polar area, depth across capabilities
+  const ctx4 = document.getElementById('capabilityChart');
+  if(ctx4){
+    new Chart(ctx4, {
+      type:'polarArea',
+      data:{
+        labels:[
+          'Lifecycle Automation',
+          'Platform Migrations',
+          'Self-Service / Preference',
+          'AI Agent Build',
+          'Deliverability / Compliance',
+          'Loyalty & Retention',
+          'B2B Engineering',
+          'Cross-Functional Lead'
+        ],
+        datasets:[{
+          data:[10, 8, 9, 7, 9, 8, 8, 9],
+          backgroundColor:[
+            'rgba(233,75,42,0.55)',
+            'rgba(31,45,92,0.55)',
+            'rgba(92,114,99,0.55)',
+            'rgba(197,151,58,0.55)',
+            'rgba(184,53,26,0.55)',
+            'rgba(31,45,92,0.4)',
+            'rgba(92,114,99,0.4)',
+            'rgba(233,75,42,0.4)'
+          ],
+          borderColor:'#F2EBDC',
+          borderWidth:2
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              font:{family:'DM Sans', size:10, weight:'500'},
+              color:'#2A2A38',
+              boxWidth:10,
+              boxHeight:10,
+              padding:10,
+              usePointStyle:true
+            }
+          },
+          tooltip:{
+            backgroundColor:'#14141C',
+            titleFont:{family:'DM Sans', size:12, weight:'600'},
+            bodyFont:{family:'DM Sans', size:12},
+            padding:12,
+            cornerRadius:4,
+            callbacks:{
+              label: function(ctx){ return 'Depth: ' + ctx.parsed.r + ' / 10'; }
+            }
+          }
+        },
+        scales:{
+          r:{
+            min:0,
+            max:10,
+            grid:{color:'rgba(20,20,28,0.1)'},
+            angleLines:{color:'rgba(20,20,28,0.08)'},
+            ticks:{display:false, stepSize:2}
+          }
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

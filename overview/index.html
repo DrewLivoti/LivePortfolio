@@ -334,7 +334,7 @@
 
   .stats-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:0;
     border-top:1px solid var(--line);
     border-left:1px solid var(--line);
@@ -342,7 +342,7 @@
   @media(max-width:760px){.stats-grid{grid-template-columns:1fr;}}
 
   .stat{
-    padding:32px 24px;
+    padding:44px 36px;
     border-right:1px solid var(--line);
     border-bottom:1px solid var(--line);
     background:var(--paper-soft);
@@ -881,7 +881,7 @@
         <div class="eyebrow"><span class="pulse-dot"></span></div>
         <h1 class="headline">Programs, teams <span class="amp">&amp;</span> the <em>systems</em> between them.</h1>
         <p class="lede">
-          A <strong>CRM &amp; lifecycle leader</strong> with 15 years building scaled customer engagement programs across <strong>pharma, fintech, digital therapeutics, consumer electronics, and agency</strong> — from hand-coded preference centers and 6M+ contact databases to in-house AI agents that compress process cycles. <strong>8-figures in annualized revenue.</strong> Teams led, platforms migrated, customer journeys turned into measurable retention and expansion.
+          A <strong>CRM &amp; lifecycle leader</strong> with 15 years building scaled customer engagement programs across <strong>pharma, fintech, digital therapeutics, consumer electronics, and agency</strong> — from hand-coded preference centers and 6M+ contact databases to in-house AI agents that compress process cycles. Along the way I've driven <strong>8-figures in annualized revenue</strong>, scaled teams to 23 across deep cross-functional partnerships, and turned customer journeys into measurable retention and expansion.
         </p>
         <div class="hero-meta">
           <div>
@@ -954,24 +954,14 @@
 
     <div class="stats-grid">
       <div class="stat reveal">
-        <div class="stat-num"><span data-target="15" data-prefix="$">0</span><span class="unit">M</span></div>
-        <div class="stat-label">Annualized revenue from Pfizer's first abandoned-cart lifecycle program — architected around SAP-native triggers</div>
-        <div class="stat-context">Pfizer · Pharma · 2024</div>
-      </div>
-      <div class="stat reveal">
         <div class="stat-num"><span data-target="30" data-suffix="%">0</span></div>
-        <div class="stat-label">Customer engagement lift from a Roblox loyalty program I conceived and shipped via a CEO-level partnership</div>
+        <div class="stat-label">Customer engagement lift from a Roblox loyalty program I conceived and shipped via a C-suite-level partnership</div>
         <div class="stat-context">Akili · Digital Therapeutics · 2023</div>
       </div>
       <div class="stat reveal">
         <div class="stat-num"><span data-target="20">0</span><span class="unit">×</span></div>
         <div class="stat-label">Unsubscribe-rate reduction (2% → 0.1%) from a hand-built self-service preference center at Yieldstreet</div>
         <div class="stat-context">Yieldstreet · Fintech · 2021</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat-num"><span data-target="6">0</span><span class="unit">M+</span></div>
-        <div class="stat-label">Customer base segmented across B2B + B2C via reusable SQL framework on SFMC data extensions</div>
-        <div class="stat-context">Nikon · Consumer Electronics · 2017–2020</div>
       </div>
       <div class="stat reveal">
         <div class="stat-num"><span data-target="17" data-suffix="%">0</span></div>
@@ -1187,10 +1177,10 @@
           <span class="case-tag">01 / AI &amp; Internal Tooling</span>
           <span class="case-where">Pfizer · 2024</span>
         </div>
-        <h3 class="case-title">Built solo. Used by <em>Directors</em>.</h3>
+        <h3 class="case-title">Built solo. Used by the entire <em>division</em>.</h3>
         <ul class="case-wins">
           <li>Built a <strong>CRM process AI agent</strong> solo on Pfizer's GenAI platform (Claude + GPT engines) — no engineering team, no vendor</li>
-          <li>Used today across <strong>3 workstream handoffs</strong>: production, ops, data science. Adopted by Directors above me.</li>
+          <li>Used today across <strong>3 workstream handoffs</strong> — production, ops, data science — with adoption spanning peers, brand leads, and Directors above me</li>
           <li><strong>12-week process compressed to 10 weeks</strong> when the agent is used effectively across those handoffs</li>
         </ul>
         <p class="case-move"><strong>The move</strong>Saw the 12-team handoff process as the bottleneck and embedded the institutional knowledge into an agent — instead of writing more documentation.</p>
@@ -1202,7 +1192,7 @@
           <span class="case-tag">02 / Lifecycle Revenue</span>
           <span class="case-where">Pfizer · 2024</span>
         </div>
-        <h3 class="case-title">$15M from <em>not</em> using SFMC.</h3>
+        <h3 class="case-title">$15M from an <em>unexpected</em> project.</h3>
         <ul class="case-wins">
           <li>Architected the <strong>abandoned-cart program to trigger from SAP natively</strong>, not from the marketing automation stack</li>
           <li>Unlocked promotional classification + 100% reach (bypassed marketing opt-outs) + every-5-min deployment vs. SFMC's 1-per-day cap</li>
@@ -1217,7 +1207,7 @@
           <span class="case-tag">03 / Partnerships &amp; Engagement</span>
           <span class="case-where">Akili · 2023</span>
         </div>
-        <h3 class="case-title">30% engagement from a <em>CEO friendship</em>.</h3>
+        <h3 class="case-title">30% engagement from a <em>C-suite friendship</em>.</h3>
         <ul class="case-wins">
           <li>Noticed Akili's CEO had a personal friendship with Roblox's CEO — pitched and closed the partnership myself</li>
           <li>Designed an in-game hat economy unlocked by EndeavorRx app progression. Owned segmentation + SFMC plumbing + brand brief</li>
@@ -1632,11 +1622,11 @@
       type:'bar',
       data:{
         labels:[
-          'Consumer Electronics',
-          'Agency / Multi-client',
-          'Digital Therapeutics',
+          ['Consumer','Electronics'],
+          ['Agency /','Multi-client'],
+          ['Digital','Therapeutics'],
           'Pharma',
-          'Fintech / Investments'
+          ['Fintech /','Investments']
         ],
         datasets:[{
           label:'Years',
